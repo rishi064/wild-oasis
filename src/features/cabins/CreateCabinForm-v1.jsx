@@ -11,14 +11,8 @@ import FormRow from "../../ui/FormRow";
 
 import { createCabin } from "../../services/apiCabin";
 
-function CreateCabinForm({ cabinToEdit = {} }) {
-  const { id: editId, ...editValue } = cabinToEdit;
-
-  const isEditSession = Boolean(editId);
-
-  const { register, handleSubmit, reset, getValues, formState } = useForm({
-    defaultValues: isEditSession ? editValue : {},
-  });
+function CreateCabinForm() {
+  const { register, handleSubmit, reset, getValues, formState } = useForm();
   const { errors } = formState;
 
   const queryClient = useQueryClient();
